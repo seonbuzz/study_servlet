@@ -8,5 +8,42 @@
   </head>
   <body>
     <div>index.html</div>
+    <div>
+      <a href="/helloWorldServlet">hello World Servlet</a>
+    </div>
+    <div>
+      <a href="/searchFormServlet">search Form Servlet</a>
+    </div>
+    <div>
+      <a href="/tableListServlet">table List Servlet</a>
+    </div>
+    <div>
+      <a href="/tableBundleServlet">table Bundle Servlet</a>
+    </div>
+    <div>
+      <a href="/tableBeanListServlet">table Bean List Servlet</a>
+    </div>
+    <div>
+      <a href="/simple/WithDBServlet">Simple With DB Servlet</a>
+    </div>
+    <div>Form element</div>
+    <form action="/helloWorldServlet" method="get">
+      <input type='text' name='firstName' id=' value='Seonah' /> <input
+      type='text' name='secondName' id=' value='Yun' />
+      <input type="hidden" name="hiddenParam" value="lululu" />
+      <button>helloWorldServlet</button>
+    </form>
+    <form action="/searchFormServlet" method="get">
+      <button>searchFormServlet</button>
+    </form>
+    <form action="/tableListServlet" method="get">
+      <button>tableListServlet</button>
+    </form>
+    <form action="/tableBundleServlet" method="get">
+      <button>tableBundleServlet</button>
+    </form>
+    <form action="/tableBeanListServlet" method="get">
+      <button>tableBeanListServlet</button>
+    </form>
   </body>
 </html>

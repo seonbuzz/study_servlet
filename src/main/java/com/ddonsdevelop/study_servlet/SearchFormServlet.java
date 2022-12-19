@@ -2,6 +2,7 @@ package com.ddonsdevelop.study_servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,13 +12,15 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/searchFormServlet")
 public class SearchFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
-      
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter printWriter = response.getWriter();
 
-      String title = "Search";
+        DatasInfor datasInfor = new DatasInfor();
+        HashMap<String, String> searchFormData = datasInfor.getSearchFormData();
+      String title = searchFormData.get("search_key");
       printWriter.println ("<html lang='en'>");
         printWriter.println ("<head>");
-      
+        printWriter.println (" <meta charset='UTF-8' />");
         printWriter.println ("<link rel='stylesheet' href=''./css/common.css'/>");
     
         printWriter.println ("<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65' crossorigin='anonymous'/>");
@@ -26,7 +29,7 @@ public class SearchFormServlet extends HttpServlet {
         printWriter.println (" <body>");
         printWriter.println ("  <form action=''>");
         printWriter.println ("   <div class='container'>");
-        printWriter.println ("   <div class='fs-3'>Search Form</div>");
+        printWriter.println ("   <div class='fs-3'>Search Form -"+searchFormData.get("name")+"</div>");
         printWriter.println ("   <div>");
         printWriter.println ("  <label for='' class='form-label'>Search with Name</label>");
         printWriter.println ("  <input class='form-control' type='email' placeholder='Input Name!'' name='' id='' />");
