@@ -22,7 +22,6 @@ public class TableListServlet extends HttpServlet {
         ArrayList<String> tableListWithString = datasInfor.getTableListWithString();
 
         PrintWriter printWriter = response.getWriter();
-
         HashMap<String, String> searchForm = datasInfor.getSearchFormData();
         printWriter.println ("<html lang='en'>");
         printWriter.println ("<head>");
