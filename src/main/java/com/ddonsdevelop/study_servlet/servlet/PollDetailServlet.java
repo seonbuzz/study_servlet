@@ -3,6 +3,7 @@ package com.ddonsdevelop.study_servlet.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.ddonsdevelop.study_servlet.dao.PollWithDB;
@@ -28,21 +29,29 @@ String questions_Uid = request.getParameter("QUESTIONS_UID");
 
     //biz with DB and Class
     PollWithDB pollWithDB = new PollWithDB(); //인스턴스화
+
     HashMap<String, Object> question = null;   //펑션불러오기
+    ArrayList<HashMap> answer = null;
 
    try {
     question = pollWithDB.getQuestion(questions_Uid);  //재선언
-    System.out.println(question.get("QUESTIONS_UID"));
-    System.out.println(question.get("QUESTIONS"));
-    System.out.println(question.get("ORDERS"));
+    answer = pollWithDB.getAnswer(questions_Uid);
+
+    // System.out.println(question.get("QUESTIONS_UID"));
+    // System.out.println(question.get("QUESTIONS"));
+    // System.out.println(question.get("ORDERS"));
+
     } catch (SQLException e) {
     
+
         e.printStackTrace();
     } 
 
 
     //output with html
-    request.setAttribute("question", question);
+    request.setAttribute("question", question); 
+    // ("객체명",객체);
+    request.setAttribute("answer", answer);
     RequestDispatcher requestDispatcher =  request.getRequestDispatcher("/poll/detail.jsp");
     requestDispatcher.forward(request, response);
     }
