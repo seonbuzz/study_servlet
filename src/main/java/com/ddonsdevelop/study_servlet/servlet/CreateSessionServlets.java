@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-// /session/createServlets?username=yojulab&password=1234
+// /session/createServlets?username=Seonah&password=1234
 @WebServlet(urlPatterns="/session/createServlets")
 public class CreateSessionServlets extends HttpServlet {
     @Override
@@ -24,14 +24,18 @@ public class CreateSessionServlets extends HttpServlet {
         PrintWriter printWriter = response.getWriter();
         printWriter.println("<div>Create Session Servlets</div>");
         // login 
-        if(username.equals("yojulab") && password.equals("1234")){
+        if(username.equals("Seonah") && password.equals("1234")){
             HttpSession httpSession = request.getSession();
             httpSession.setAttribute("username", username);
             httpSession.setAttribute("password", password);
             printWriter.println("<div>"+username+", "+password+"</div>");
         } else {
-            printWriter.println("<div>Faild</div>");
+            printWriter.println("<div>Failed</div>");
         }
         printWriter.close();
+    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doGet(request, response);
     }
 }

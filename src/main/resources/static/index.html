@@ -26,7 +26,11 @@
     <div>
       <a href="/simple/WithDBServlet">Simple With DB Servlet</a>
     </div>
-    <div>Form element</div>
+    <div>
+      <a href="navbar.jsp">navbar</a>
+    </div>
+
+    <h2>Form element</h2>
     <form action="/helloWorldServlet" method="get">
       <input type='text' name='firstName' id=' value='Seonah' /> <input
       type='text' name='secondName' id=' value='Yun' />
@@ -51,8 +55,18 @@
     <div>
       <a href="/dispatcherJSPServlet">/dispatcher JSP Servlet</a>
     </div>
-
-    <div>Cases</div>
+    <div>
+      <a href="/session/createServlets?username=yojulab&password=1234"
+        >/session/createServlets?username=yojulab&password=1234 Create Session
+        Servlet</a
+      >
+    </div>
+    <form action="/session/createServlets" method="post">
+      <input type="text" name="username" id="" value="Seonah" />
+      <input type="text" name="password" id="" value="1234" />
+      <button>"/session/createServlets with post</button>
+    </form>
+    <h2>Cases</h2>
     <div>
       <a href="/poll/PollServlet?QUESTIONS_UID=Q1"
         >/DetailServlet.java & /poll/detail.jsp</a

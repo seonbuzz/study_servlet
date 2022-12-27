@@ -33,8 +33,8 @@ public class HelloWorldServlet extends HttpServlet  {
             printWriter.println("<div> secondName :"+secondName+"</div>");
    
             printWriter.println("<form action='/helloWorldServlet?firstName=Seonah&secondName=Yun' method='get' >");
-          printWriter.println("<input type='text' name='firstName' id=' value='"+firstName+"' />");
-          printWriter.println("<input type='text' name='secondName' id=' value='"+secondName+"' />");
+          printWriter.println("<input type='text' name='firstName' id='' value='"+firstName+"' />");
+          printWriter.println("<input type='text' name='secondName' id='' value='"+secondName+"' />");
           printWriter.println(" <button>recall helloWorldServlet</button>");
           printWriter.println(" </form>");
             printWriter.println("</body>"); 

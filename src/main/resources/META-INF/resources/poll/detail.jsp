@@ -39,10 +39,16 @@
     <%= question.get("ORDERS") %>. <%= question.get("QUESTIONS") %>
     </div>
 
-    <% for(int i=0; i<answer.size(); i++){ %>
-      <div> <%= (i+1) %>. <%= answer.get(i)  %> </div>
+  <% 
+    for(int i=0; i<answer.size(); i++){ 
+        HashMap<String, Object> result = answer.get(i);
+    %>
+    <!--  <div> <%= (i+1) %>. <%= answer.get(i)  %> </div> -->
 
+    <div> (<%= result.get("ORDERS")  %>) <%=result.get("EXAMPLE") %></div>
+ 
     <% } %>
+
 
     </div>
        <script

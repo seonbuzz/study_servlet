@@ -35,7 +35,7 @@ String questions_Uid = request.getParameter("QUESTIONS_UID");
 
    try {
     question = pollWithDB.getQuestion(questions_Uid);  //재선언
-    answer = pollWithDB.getAnswer(questions_Uid);
+    answer = pollWithDB.getAnswer(questions_Uid); //키로 선정을 했기 때문에 파라미터 들어감
 
     // System.out.println(question.get("QUESTIONS_UID"));
     // System.out.println(question.get("QUESTIONS"));
@@ -47,7 +47,11 @@ String questions_Uid = request.getParameter("QUESTIONS_UID");
         e.printStackTrace();
     } 
 
-
+    for(int i=0; i<answer.size(); i++) {
+        HashMap<String, Object> result = answer.get(i);
+        System.out.println(result.get("ORDERS"));
+        System.out.println(result.get("EXAMPLE"));
+    }
     //output with html
     request.setAttribute("question", question); 
     // ("객체명",객체);

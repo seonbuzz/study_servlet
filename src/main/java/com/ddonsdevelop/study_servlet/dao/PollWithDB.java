@@ -21,7 +21,7 @@ public class PollWithDB {
         Statement statement = commons.getStatement(); //쿼리문을 넣으려면 statement
 
         String query = "SELECT * FROM QUESTIONS_LIST "  +
-                       " WHERE QUESTIONS_UID = '"+questionsUid+"'";
+                       " WHERE QUESTIONS_UID = '"+questionsUid+"' ";
 
         //Query 날리기
         ResultSet resultSet = statement.executeQuery(query);
@@ -44,6 +44,7 @@ HashMap<String, Object> result = null;
 
     public ArrayList<HashMap> getAnswer(String questionsUid) throws SQLException {
 
+        
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
 

@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 // /session/createJSPServlets?username=ddon&password=1234
-@WebServlet(urlPatterns="/session/createJSPServlets")
+@WebServlet(urlPatterns="/session/createJSPServlet")
 public class CreateSessionJSPServlets extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
