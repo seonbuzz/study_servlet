@@ -25,11 +25,12 @@ public class PollWithDB {
 
         //Query 날리기
         ResultSet resultSet = statement.executeQuery(query);
+        
 //리턴을 하기 위해서 while문 밖에서 HashMap 선언
 HashMap<String, Object> result = null; 
 
         while(resultSet.next()){
-            //사용할 떄만 new
+            //사용할 때만 new
             result = new HashMap<>();
             result.put("QUESTIONS_UID",resultSet.getString("QUESTIONS_UID"));
             result.put("QUESTIONS",resultSet.getString("QUESTIONS"));
@@ -46,20 +47,20 @@ HashMap<String, Object> result = null;
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
 
-     
-
-        String query = "SELECT * FROM EXAMPLE_LIST INNER JOIN ANSWERS " + 
-        "ON EXAMPLE_LIST.EXAMPLE_UID = ANSWERS.EXAMPLE_UID " + 
-        "WHERE ANSWERS.QUESTIONS_UID = '" + questionsUid+"'";
+        String query = "SELECT ANSWERS.QUESTIONS_UID, EXAMPLE_LIST.ORDERS, EXAMPLE_LIST.EXAMPLE " +
+                        "FROM ANSWERS INNER JOIN EXAMPLE_LIST " + 
+                        "ON EXAMPLE_LIST.EXAMPLE_UID = ANSWERS.EXAMPLE_UID " + 
+                        "WHERE QUESTIONS_UID = '" +questionsUid+"' " +
+                        "ORDER BY QUESTIONS_UID ";
 
         ResultSet resultSet = statement.executeQuery(query);
-
+        //조회된 결과들을 ResultSet에 저장한다.
         ArrayList<HashMap> answer = new ArrayList<>();
         HashMap<String, Object> result = null;
 
             while(resultSet.next()){
-            result = new HashMap<>();
-            // result.put("EXAMPLE_UID", resultSet.getString("EXAMPLE_UID"));
+            result = new HashMap<>(); //재선언
+            result.put("QUESTIONS_UID", resultSet.getString("QUESTIONS_UID"));
             result.put("EXAMPLE", resultSet.getString("EXAMPLE"));
             result.put("ORDERS", resultSet.getInt("ORDERS"));
 
